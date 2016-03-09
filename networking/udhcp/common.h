@@ -304,7 +304,7 @@ int udhcp_sp_read(const fd_set *rfds) FAST_FUNC;
 
 int udhcp_read_interface(const char *interface, int *ifindex, uint32_t *nip, uint8_t *mac) FAST_FUNC;
 
-int udhcp_listen_socket(/*uint32_t ip,*/ int port, const char *inf) FAST_FUNC;
+int udhcp_listen_socket(uint32_t ip, int port, const char *inf) FAST_FUNC;
 
 /* Returns 1 if no reply received */
 int arpping(uint32_t test_nip,

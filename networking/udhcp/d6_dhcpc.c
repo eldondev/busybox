@@ -761,7 +761,7 @@ static void change_listen_mode(int new_mode)
 		sockfd = -1;
 	}
 	if (new_mode == LISTEN_KERNEL)
-		sockfd = udhcp_listen_socket(/*INADDR_ANY,*/ CLIENT_PORT6, client_config.interface);
+		sockfd = udhcp_listen_socket(INADDR_ANY, CLIENT_PORT6, client_config.interface);
 	else if (new_mode != LISTEN_NONE)
 		sockfd = d6_raw_socket(client_config.ifindex);
 	/* else LISTEN_NONE: sockfd stays closed */

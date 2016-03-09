@@ -166,7 +166,7 @@ static int init_sockets(char **iface_list, int num_clients, int *fds)
 
 	n = 0;
 	for (i = 0; i < num_clients; i++) {
-		fds[i] = udhcp_listen_socket(/*INADDR_ANY,*/ SERVER_PORT, iface_list[i]);
+		fds[i] = udhcp_listen_socket(INADDR_ANY, SERVER_PORT, iface_list[i]);
 		if (n < fds[i])
 			n = fds[i];
 	}

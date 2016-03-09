@@ -76,7 +76,7 @@ int FAST_FUNC udhcp_read_interface(const char *interface, int *ifindex, uint32_t
 
 /* 1. None of the callers expects it to ever fail */
 /* 2. ip was always INADDR_ANY */
-int FAST_FUNC udhcp_listen_socket(/*uint32_t ip,*/ int port, const char *inf)
+int FAST_FUNC udhcp_listen_socket(uint32_t ip, int port, const char *inf)
 {
 	int fd;
 	struct sockaddr_in addr;
@@ -103,6 +103,7 @@ int FAST_FUNC udhcp_listen_socket(/*uint32_t ip,*/ int port, const char *inf)
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(port);
+	addr.sin_addr.s_addr = ip; 
 	/* addr.sin_addr.s_addr = ip; - all-zeros is INADDR_ANY */
 	xbind(fd, (struct sockaddr *)&addr, sizeof(addr));
 

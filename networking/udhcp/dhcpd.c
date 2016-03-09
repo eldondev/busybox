@@ -407,7 +407,7 @@ int udhcpd_main(int argc UNUSED_PARAM, char **argv)
 		struct dyn_lease *lease, fake_lease;
 
 		if (server_socket < 0) {
-			server_socket = udhcp_listen_socket(/*INADDR_ANY,*/ SERVER_PORT,
+			server_socket = udhcp_listen_socket(server_config.server_nip, SERVER_PORT,
 					server_config.interface);
 		}
 
